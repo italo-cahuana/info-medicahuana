@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía SRS - MediCahuana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #00A8E8;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.25rem;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            background-color: #005A9C;
+            border: 4px solid #00A8E8;
+            border-radius: 50%;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-3xl font-bold text-[#005A9C]">Infografía: Especificación de Requisitos de Software</h1>
+            <p class="text-xl text-slate-600">Proyecto MediCahuana v1.0</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section class="mb-12">
+            <p class="text-lg text-slate-700 text-center max-w-3xl mx-auto mb-8">
+                MediCahuana es una plataforma SaaS diseñada para revolucionar la gestión en centros de salud en Colombia, reemplazando procesos manuales con una solución digital integral. Esta infografía desglosa los componentes clave de su desarrollo.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <span class="text-5xl font-bold text-[#005A9C]">5</span>
+                    <p class="text-xl text-slate-600 mt-2">Módulos Principales</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <span class="text-5xl font-bold text-[#00A8E8]">3</span>
+                    <p class="text-xl text-slate-600 mt-2">Perfiles de Usuario Clave</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <span class="text-5xl font-bold text-[#33CC99]">4+</span>
+                    <p class="text-xl text-slate-600 mt-2">Normas y Leyes Clave</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-8">¿Para Quién es MediCahuana?</h2>
+            <p class="text-lg text-slate-700 text-center max-w-3xl mx-auto mb-8">
+                El éxito del sistema depende de entender a sus usuarios. Se han identificado tres perfiles principales con diferentes habilidades y responsabilidades.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+                    <span class="text-4xl">👨‍💼</span>
+                    <h3 class="text-2xl font-bold text-[#005A9C] mt-4 mb-2">Administrador (IPS)</h3>
+                    <p class="text-slate-600 mb-4"><span class="font-semibold">Habilidad Técnica:</span> Media-Alta</p>
+                    <p class="text-slate-700 flex-grow">Encargado de configurar el sistema, crear cuentas de personal, gestionar horarios y supervisar el inventario y la facturación.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+                    <span class="text-4xl">🧑‍⚕️</span>
+                    <h3 class="text-2xl font-bold text-[#005A9C] mt-4 mb-2">Personal Médico</h3>
+                    <p class="text-slate-600 mb-4"><span class="font-semibold">Habilidad Técnica:</span> Baja-Media</p>
+                    <p class="text-slate-700 flex-grow">Usuario enfocado en el paciente. Su labor principal es consultar la agenda y registrar la atención en la Historia Clínica Electrónica (EHR).</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md h-full flex flex-col">
+                    <span class="text-4xl">👩‍💻</span>
+                    <h3 class="text-2xl font-bold text-[#005A9C] mt-4 mb-2">Personal Administrativo</h3>
+                    <p class="text-slate-600 mb-4"><span class="font-semibold">Habilidad Técnica:</span> Media</p>
+                    <p class="text-slate-700 flex-grow">Usuario de alta frecuencia. Gestiona el flujo de pacientes, agenda citas, registra nuevos usuarios y genera las facturas de consulta.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-8">Funcionalidad del Sistema</h2>
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#005A9C] mb-4">Módulos Centrales</h3>
+                        <p class="text-slate-700 mb-4">
+                            La funcionalidad de MediCahuana se divide en cinco módulos interconectados que cubren el ciclo de vida completo de la atención al paciente y la administración del centro de salud.
+                        </p>
+                        <p class="text-slate-700">
+                            El gráfico de dona ilustra la distribución de los requisitos funcionales iniciales, mostrando un enfoque equilibrado en la gestión de pacientes y el agendamiento, que son el corazón del sistema.
+                        </p>
+                    </div>
+                    <div class="chart-container w-full max-w-lg mx-auto h-80 max-h-80 md:h-96 md:max-h-96">
+                        <canvas id="modulesDonutChart"></canvas>
+                    </div>
+                </div>
+
+                <hr class="my-8 border-slate-200">
+
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-[#005A9C] mb-4 text-center">Requisitos Funcionales por Módulo</h3>
+                    <p class="text-slate-700 mb-6 text-center max-w-2xl mx-auto">
+                        Al analizar la cantidad de requisitos funcionales (RF) por módulo, podemos ver dónde se concentra la complejidad inicial. La gestión de pacientes (PAC) y el agendamiento (AGE) lideran, seguidos de cerca por la administración del sistema (SYS).
+                    </p>
+                    <div class="chart-container w-full max-w-3xl mx-auto h-96 max-h-96">
+                        <canvas id="rfBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-8">Pilares de Calidad: Requisitos No Funcionales</h2>
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-[#005A9C] mb-4">Balance de Atributos</h3>
+                        <p class="text-slate-700 mb-4">
+                            Un software no solo debe funcionar, debe hacerlo bien. Los Requisitos No Funcionales (RNF) definen la calidad del sistema. En un software de salud, la seguridad y la fiabilidad son críticas.
+                        </p>
+                        <p class="text-slate-700">
+                            El gráfico de radar muestra el número de RNF definidos por categoría, destacando una fuerte priorización en la **Seguridad** (para proteger los datos del paciente) y el **Rendimiento** (para una experiencia de usuario fluida).
+                        </p>
+                    </div>
+                    <div class="chart-container w-full max-w-lg mx-auto h-80 max-h-80 md:h-96 md:max-h-96">
+                        <canvas id="rnfRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-8">Tecnología y Evolución</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-[#005A9C] mb-6 text-center">Restricciones y Stack Tecnológico</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
+                            <span class="text-3xl">🖥️</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Plataforma</h4>
+                                <p class="text-slate-600">Aplicación Web (SaaS) desplegada en la nube (AWS/Azure). No se permite instalación local (on-premise).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
+                            <span class="text-3xl">⚙️</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Stack de Desarrollo</h4>
+                                <p class="text-slate-600">Backend: Java (Spring Boot)<br>Frontend: React<br>Base de Datos: PostgreSQL</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
+                            <span class="text-3xl">⚖️</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Cumplimiento Normativo</h4>
+                                <p class="text-slate-600">El sistema debe adherirse estrictamente a la Ley 1581 (Habeas Data) y generar reportes RIPS (Res. 3374).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-[#005A9C] mb-6 text-center">Evolución Previsible del Sistema</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-lg text-slate-700">Versión 1.1</h4>
+                            <p class="text-slate-600">Módulo de facturación electrónica integrada con la DIAN.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-lg text-slate-700">Versión 2.0</h4>
+                            <p class="text-slate-600">Portal del Paciente para auto-agendamiento y consulta de resultados.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-lg text-slate-700">Versión 2.1</h4>
+                            <p class="text-slate-600">Integración de un módulo de Telemedicina (videoconsulta).</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-lg text-slate-700">Versión 3.0</h4>
+                            <p class="text-slate-600">Integración con laboratorios y farmacias externas vía API.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center p-6 bg-slate-800 text-slate-300 mt-12">
+        <p>Infografía generada automáticamente basada en el documento SRS v1.0.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const vibrantColors = ['#005A9C', '#00A8E8', '#33CC99', '#9EE493', '#F7B801'];
+            const vibrantColorsAlpha = ['rgba(0, 90, 156, 0.7)', 'rgba(0, 168, 232, 0.7)', 'rgba(51, 204, 153, 0.7)', 'rgba(158, 228, 147, 0.7)', 'rgba(247, 184, 1, 0.7)'];
+
+            const mandatedTooltipCallback = function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const mandatedOptions = {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: mandatedTooltipCallback
+                        }
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    }
+                }
+            };
+
+            const modulesDonutCtx = document.getElementById('modulesDonutChart');
+            if (modulesDonutCtx) {
+                new Chart(modulesDonutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Administración (SYS)', 'Pacientes (EHR)', 'Agendamiento (AGE)', 'Inventario (INV)', 'Reportes (REP)'],
+                        datasets: [{
+                            label: '# de Requisitos',
+                            data: [5, 6, 5, 4, 3],
+                            backgroundColor: vibrantColors,
+                            borderColor: '#ffffff',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        ...mandatedOptions,
+                        plugins: {
+                            ...mandatedOptions.plugins,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            const rfBarCtx = document.getElementById('rfBarChart');
+            if (rfBarCtx) {
+                new Chart(rfBarCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['SYS (Admin)', 'PAC (Pacientes)', 'AGE (Agendas)', 'INV (Inventario)', 'REP (Reportes)'],
+                        datasets: [{
+                            label: '# de Requisitos Funcionales',
+                            data: [5, 6, 5, 4, 3],
+                            backgroundColor: vibrantColorsAlpha,
+                            borderColor: vibrantColors,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        ...mandatedOptions,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            },
+                            y: {
+                                ticks: {
+                                    font: {
+                                        family: "'Inter', sans-serif"
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            ...mandatedOptions.plugins,
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            const rnfRadarCtx = document.getElementById('rnfRadarChart');
+            if (rnfRadarCtx) {
+                new Chart(rnfRadarCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Rendimiento', 'Seguridad', 'Usabilidad', 'Fiabilidad', 'Mantenibilidad'],
+                        datasets: [{
+                            label: '# de Requisitos No Funcionales',
+                            data: [3, 4, 3, 2, 1],
+                            backgroundColor: 'rgba(0, 168, 232, 0.2)',
+                            borderColor: 'rgba(0, 168, 232, 1)',
+                            pointBackgroundColor: 'rgba(0, 168, 232, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(0, 168, 232, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        ...mandatedOptions,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1,
+                                    backdropColor: 'transparent'
+                                },
+                                pointLabels: {
+                                    font: {
+                                        size: 13,
+                                        family: "'Inter', sans-serif"
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                angleLines: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            ...mandatedOptions.plugins,
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
